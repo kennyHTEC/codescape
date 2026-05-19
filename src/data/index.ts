@@ -1,11 +1,17 @@
-import conceptsBySection from './concepts.json';
-import sectionsData from './sections.json';
-import { Concept, Section } from '../types/concepts';
+import javascriptSection from './javascript.json';
 
-export const sections = sectionsData as Section[];
+import type { Concept, Section } from './types';
 
-const concepts = conceptsBySection as Record<string, Concept[]>;
+const sections: Section[] = [javascriptSection as Section];
 
-export function getConcept(sectionId: string, conceptId: string): Concept | undefined {
-  return concepts[sectionId]?.find((concept) => concept.id === conceptId);
+export function getSections(): Section[] {
+  return sections;
+}
+
+export function getSectionById(id: string): Section | undefined {
+  return sections.find((section) => section.id === id);
+}
+
+export function getConceptById(sectionId: string, conceptId: string): Concept | undefined {
+  return getSectionById(sectionId)?.concepts.find((concept) => concept.id === conceptId);
 }

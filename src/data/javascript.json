@@ -1,0 +1,23 @@
+{
+  "id": "javascript",
+  "title": "JavaScript",
+  "color": "#F59E0B",
+  "concepts": [
+    {
+      "id": "inheritance",
+      "title": "Inheritance",
+      "description": "Inheritance lets a class reuse and extend behavior from a parent class.",
+      "content": "Inheritance creates a relationship between classes so shared behavior can live in one place. A child class can use parent methods and optionally override them with more specific behavior.",
+      "codeExample": "class Animal {\n  speak() {\n    return 'Generic sound';\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return 'Woof!';\n  }\n}\n\nconst dog = new Dog();\nconsole.log(dog.speak());",
+      "tryItCode": "class Vehicle {\n  move() {\n    return 'Moving';\n  }\n}\n\nclass Car extends Vehicle {}\n\nconst car = new Car();\nconsole.log(car.move());"
+    },
+    {
+      "id": "abstraction",
+      "title": "Abstraction",
+      "description": "Abstraction hides internal complexity and exposes a simple interface to use.",
+      "content": "Abstraction helps developers focus on what a system does instead of how every internal step works. A clean public API keeps code easier to use, maintain, and test.",
+      "codeExample": "class CoffeeMachine {\n  makeCoffee() {\n    this.#heatWater();\n    this.#brew();\n    return 'Coffee ready';\n  }\n\n  #heatWater() {\n    return 'Heating water';\n  }\n\n  #brew() {\n    return 'Brewing';\n  }\n}\n\nconst machine = new CoffeeMachine();\nconsole.log(machine.makeCoffee());",
+      "tryItCode": "class PaymentService {\n  pay(amount) {\n    return this.#send(amount);\n  }\n\n  #send(amount) {\n    return `Sent ${amount}`;\n  }\n}\n\nconsole.log(new PaymentService().pay(50));"
+    }
+  ]
+}

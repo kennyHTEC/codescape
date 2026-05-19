@@ -1,14 +1,14 @@
-import { Stack } from 'expo-router';
-import { colors } from '../src/theme/colors';
+import { Slot } from 'expo-router';
+
+import { AppShell } from '../src/components/layout/AppShell';
+import { ThemeProvider } from '../src/hooks/useTheme';
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: colors.surface },
-        headerTintColor: colors.textPrimary,
-        contentStyle: { backgroundColor: colors.background },
-      }}
-    />
+    <ThemeProvider>
+      <AppShell>
+        <Slot />
+      </AppShell>
+    </ThemeProvider>
   );
 }
