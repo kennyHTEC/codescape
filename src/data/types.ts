@@ -1,15 +1,15 @@
-export type Concept = {
+export interface Concept {
   id: string;
   title: string;
   description: string;
   content: string;
   codeExample: string;
-  tryItCode: string;
-};
+  tryItCode?: string;
+}
 
-export type Section = {
+export interface Section {
   id: string;
   title: string;
-  description: string;
-  concepts: string[];
-};
+  color: string;
+  concepts: Concept[];
+}

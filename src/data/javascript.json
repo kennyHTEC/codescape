@@ -1,0 +1,23 @@
+{
+  "id": "javascript",
+  "title": "JavaScript",
+  "color": "#F7DF1E",
+  "concepts": [
+    {
+      "id": "inheritance",
+      "title": "Inheritance",
+      "description": "Inheritance lets a class reuse properties and behavior from a parent class.",
+      "content": "Inheritance creates a parent-child relationship between classes so shared behavior is written once and reused. In JavaScript, classes can extend a base class and override methods for specialized behavior, which keeps code organized and reduces duplication.",
+      "codeExample": "class Animal {\n  speak() {\n    return 'Generic sound';\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return 'Woof';\n  }\n}\n\nconst pet = new Dog();\nconsole.log(pet.speak()); // Woof",
+      "tryItCode": "class Vehicle {\n  move() {\n    return 'Moving forward';\n  }\n}\n\nclass Car extends Vehicle {\n  honk() {\n    return 'Beep beep';\n  }\n}\n\nconst myCar = new Car();\nconsole.log(myCar.move());\nconsole.log(myCar.honk());"
+    },
+    {
+      "id": "abstraction",
+      "title": "Abstraction",
+      "description": "Abstraction exposes a simple interface while hiding lower-level implementation details.",
+      "content": "Abstraction helps developers work with clear, high-level behavior without needing to understand every internal step. In JavaScript, methods can provide public actions while private helpers keep complex details encapsulated, making code easier to use and maintain.",
+      "codeExample": "class CoffeeMachine {\n  brew() {\n    this.#heatWater();\n    this.#prepareFilter();\n    return 'Coffee is ready';\n  }\n\n  #heatWater() {\n    return 'Heating water';\n  }\n\n  #prepareFilter() {\n    return 'Preparing filter';\n  }\n}\n\nconst machine = new CoffeeMachine();\nconsole.log(machine.brew());",
+      "tryItCode": "class PaymentProcessor {\n  pay() {\n    this.#validate();\n    return this.#sendRequest();\n  }\n\n  #validate() {\n    return true;\n  }\n\n  #sendRequest() {\n    return 'Payment complete';\n  }\n}\n\nconst processor = new PaymentProcessor();\nconsole.log(processor.pay());"
+    }
+  ]
+}
