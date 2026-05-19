@@ -1,0 +1,8 @@
+[
+  {
+    "id": "javascript",
+    "title": "JavaScript",
+    "description": "Explore object-oriented programming concepts in JavaScript.",
+    "concepts": ["inheritance", "abstraction", "polymorphism"]
+  }
+]
