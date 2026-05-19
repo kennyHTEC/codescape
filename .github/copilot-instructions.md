@@ -60,3 +60,11 @@ This project uses a specialized agent team. Each agent has a role and scope:
 
 When working on a feature, follow this order:
 PM Agent → Frontend Architect → UX Designer → QA Engineer → Implementation
+
+## Standards & Conventions
+Detailed rules for each area are defined in `.github/instructions/`:
+- `typescript-standards` → strict mode, types, null handling, imports
+- `expo-standards` → Expo Router v3, navigation hooks, layouts
+- `react-native-standards` → lists, performance, styling, touch targets
+- `testing-standards` → RNTL patterns, mocking, query priority, coverage
+- `data-standards` → JSON shape, data access functions, content rules
