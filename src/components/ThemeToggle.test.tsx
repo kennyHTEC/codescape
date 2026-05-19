@@ -1,11 +1,12 @@
-import { fireEvent, render } from '@testing-library/react-native';
+import { render, userEvent } from '@testing-library/react-native';
 
 import { ThemeProvider } from '../hooks/useTheme';
 import { ThemeToggle } from './ThemeToggle';
 
 describe('ThemeToggle', () => {
   describe('interactions', () => {
-    it('toggles between light and dark label when pressed', () => {
+    it('toggles between light and dark label when pressed', async () => {
+      const user = userEvent.setup();
       const { getByLabelText, getByText } = render(
         <ThemeProvider>
           <ThemeToggle />
@@ -15,7 +16,7 @@ describe('ThemeToggle', () => {
       const button = getByLabelText('Toggle app theme');
       const beforeText = getByText(/Theme:/).props.children.join('');
 
-      fireEvent.press(button);
+      await user.press(button);
 
       const afterText = getByText(/Theme:/).props.children.join('');
       expect(beforeText).not.toEqual(afterText);

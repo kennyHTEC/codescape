@@ -1,5 +1,5 @@
 import { Appearance, Text } from 'react-native';
-import { fireEvent, render } from '@testing-library/react-native';
+import { render, userEvent } from '@testing-library/react-native';
 
 import { ThemeProvider, useTheme } from './useTheme';
 
@@ -26,7 +26,8 @@ describe('useTheme', () => {
   });
 
   describe('interactions', () => {
-    it('reads system dark mode and toggles it', () => {
+    it('reads system dark mode and toggles it', async () => {
+      const user = userEvent.setup();
       const { getByText } = render(
         <ThemeProvider>
           <TestComponent />
@@ -34,11 +35,12 @@ describe('useTheme', () => {
       );
 
       expect(getByText('dark')).toBeVisible();
-      fireEvent.press(getByText('toggle'));
+      await user.press(getByText('toggle'));
       expect(getByText('light')).toBeVisible();
     });
 
-    it('reads system light mode and toggles it to dark', () => {
+    it('reads system light mode and toggles it to dark', async () => {
+      const user = userEvent.setup();
       jest.spyOn(Appearance, 'getColorScheme').mockReturnValue('light');
       const { getByText } = render(
         <ThemeProvider>
@@ -47,7 +49,7 @@ describe('useTheme', () => {
       );
 
       expect(getByText('light')).toBeVisible();
-      fireEvent.press(getByText('toggle'));
+      await user.press(getByText('toggle'));
       expect(getByText('dark')).toBeVisible();
     });
   });

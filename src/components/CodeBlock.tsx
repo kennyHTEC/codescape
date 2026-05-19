@@ -22,12 +22,12 @@ export function CodeBlock({ code }: CodeBlockProps) {
         const parts = line.split(KEYWORD_REGEX);
 
         return (
-          <Text key={index} style={[styles.line, themedStyles.line]}>
+          <Text key={`${index}-${line.slice(0, 20)}`} style={[styles.line, themedStyles.line]}>
             {parts.map((part, partIndex) => {
               const isKeyword = /^(class|const|return|extends|new)$/.test(part);
 
               return (
-                <Text key={partIndex} style={isKeyword ? themedStyles.keywordPart : themedStyles.defaultPart}>
+                <Text key={`${partIndex}-${part.slice(0, 10)}`} style={isKeyword ? themedStyles.keywordPart : themedStyles.defaultPart}>
                   {part}
                 </Text>
               );
