@@ -1,14 +1,24 @@
 import { Stack } from 'expo-router';
-import { colors } from '../src/theme/colors';
 
-export default function RootLayout() {
+import { ThemeProvider, useTheme } from '../src/hooks/useTheme';
+
+function RootNavigator() {
+  const { colors } = useTheme();
+
   return (
     <Stack
       screenOptions={{
-        headerStyle: { backgroundColor: colors.surface },
-        headerTintColor: colors.textPrimary,
-        contentStyle: { backgroundColor: colors.background },
+        headerShown: false,
+        contentStyle: { backgroundColor: colors.background.primary },
       }}
     />
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <ThemeProvider>
+      <RootNavigator />
+    </ThemeProvider>
   );
 }
