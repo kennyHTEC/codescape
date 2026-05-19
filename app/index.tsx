@@ -9,7 +9,7 @@ import { typography } from '../src/theme/typography';
 export default function WelcomeScreen() {
   const { colors } = useTheme();
   const sections = useSections();
-  const defaultSection = sections[0];
+  const [defaultSection] = sections;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background.primary }]}>
