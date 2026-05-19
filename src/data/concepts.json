@@ -1,0 +1,28 @@
+{
+  "javascript": [
+    {
+      "id": "inheritance",
+      "title": "Inheritance",
+      "description": "Inheritance lets one class reuse behavior from another class.",
+      "content": "Inheritance creates a parent-child relationship between classes to share logic.",
+      "codeExample": "class Animal {\n  speak() {\n    return 'Sound';\n  }\n}\n\nclass Dog extends Animal {\n  bark() {\n    return 'Woof';\n  }\n}",
+      "tryItCode": "class Vehicle {\n  move() {\n    return 'Moving';\n  }\n}\n\nclass Car extends Vehicle {}\n\nconst car = new Car();\nconsole.log(car.move());"
+    },
+    {
+      "id": "abstraction",
+      "title": "Abstraction",
+      "description": "Abstraction hides implementation details behind simple interfaces.",
+      "content": "Abstraction focuses on what an object does rather than how it does it.",
+      "codeExample": "class CoffeeMachine {\n  brew() {\n    this.#heatWater();\n    return 'Coffee ready';\n  }\n\n  #heatWater() {\n    return 'Heating';\n  }\n}",
+      "tryItCode": "class PaymentService {\n  pay() {\n    return this.#sendRequest();\n  }\n\n  #sendRequest() {\n    return 'Payment sent';\n  }\n}\n\nconsole.log(new PaymentService().pay());"
+    },
+    {
+      "id": "polymorphism",
+      "title": "Polymorphism",
+      "description": "Polymorphism allows the same method to behave differently by type.",
+      "content": "Polymorphism enables interchangeable objects through shared interfaces.",
+      "codeExample": "class Shape {\n  area() {\n    return 0;\n  }\n}\n\nclass Circle extends Shape {\n  constructor(radius) {\n    super();\n    this.radius = radius;\n  }\n\n  area() {\n    return Math.PI * this.radius ** 2;\n  }\n}",
+      "tryItCode": "class Bird {\n  fly() {\n    return 'Flying';\n  }\n}\n\nclass Penguin extends Bird {\n  fly() {\n    return 'Cannot fly';\n  }\n}\n\nconsole.log(new Penguin().fly());"
+    }
+  ]
+}
