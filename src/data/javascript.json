@@ -8,7 +8,7 @@
       "title": "Inheritance",
       "description": "Inheritance lets a class reuse and extend behavior from a parent class.",
       "content": "Inheritance creates a relationship between classes so shared behavior can live in one place. A child class can use parent methods and optionally override them with more specific behavior.",
-      "codeExample": "class Animal {\n  speak() {\n    return 'Generic sound';\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return 'Woof!';\n  }\n}\n\nconst dog = new Dog();\nconsole.log(dog.speak());",
+      "codeExample": "class Animal {\n  speak() {\n    return 'Generic sound';\n  }\n}\n\n// Dog inherits methods from Animal using extends.\nclass Dog extends Animal {\n  // We override speak() with behavior specific to Dog.\n  speak() {\n    return 'Woof!';\n  }\n}\n\nconst dog = new Dog();\n// Inherited + overridden behavior runs here.\nconsole.log(dog.speak());",
       "tryItCode": "class Vehicle {\n  move() {\n    return 'Moving';\n  }\n}\n\nclass Car extends Vehicle {}\n\nconst car = new Car();\nconsole.log(car.move());"
     },
     {
@@ -16,7 +16,7 @@
       "title": "Abstraction",
       "description": "Abstraction hides internal complexity and exposes a simple interface to use.",
       "content": "Abstraction helps developers focus on what a system does instead of how every internal step works. A clean public API keeps code easier to use, maintain, and test.",
-      "codeExample": "class CoffeeMachine {\n  makeCoffee() {\n    this.#heatWater();\n    this.#brew();\n    return 'Coffee ready';\n  }\n\n  #heatWater() {\n    return 'Heating water';\n  }\n\n  #brew() {\n    return 'Brewing';\n  }\n}\n\nconst machine = new CoffeeMachine();\nconsole.log(machine.makeCoffee());",
+      "codeExample": "class CoffeeMachine {\n  makeCoffee() {\n    // Public method users call without seeing internals.\n    this.#heatWater();\n    this.#brew();\n    return 'Coffee ready';\n  }\n\n  // Private helper hidden from callers.\n  #heatWater() {\n    return 'Heating water';\n  }\n\n  // Another private step hidden behind the public API.\n  #brew() {\n    return 'Brewing';\n  }\n}\n\nconst machine = new CoffeeMachine();\n// Caller interacts with a simple interface.\nconsole.log(machine.makeCoffee());",
       "tryItCode": "class PaymentService {\n  pay(amount) {\n    return this.#send(amount);\n  }\n\n  #send(amount) {\n    return `Sent ${amount}`;\n  }\n}\n\nconsole.log(new PaymentService().pay(50));"
     }
   ]
